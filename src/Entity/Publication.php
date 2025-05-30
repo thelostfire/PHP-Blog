@@ -8,15 +8,17 @@ class Publication {
     private string $content;
     private string $date;
     private int $likes;
+    private string $author;
     private ?string $imageURL;
     private int $id;
 
-    public function __construct(string $title, string $content, string $date, int $likes, ?string $imageURL = null) {
+    public function __construct(string $title, string $content, string $date, int $likes, string $author, ?string $imageURL = null) {
 
         $this->title = $title;
         $this->content = $content;
         $this->date = $date;
         $this->likes = $likes;
+        $this->author = $author;
         $this->imageURL = $imageURL;
     }
 
@@ -43,6 +45,12 @@ class Publication {
     }
     public function setLikes($likes) {
         $this->likes = $likes;
+    }
+    public function getAuthor() {
+        return $this->author;
+    }
+    public function setAuthor($author) {
+        $this->author = $author;
     }
     public function getImageURL() {
         return $this->imageURL;
