@@ -19,6 +19,8 @@ class PublicationRepository {
                 $row["content"],
                 $row["date"],
                 $row["likes"],
+                $row["author"],
+                $row["id"],
                 $row["imageURL"]
             );
             $list[]=$publication;
@@ -39,6 +41,8 @@ class PublicationRepository {
                 $row["content"],
                 $row["date"],
                 $row["likes"],
+                $row["author"],
+                $row["id"],
                 $row["imageURL"]
             );
             return $publication;

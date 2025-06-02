@@ -5,7 +5,6 @@ use App\Routes;
 use Dotenv\Dotenv;
 
 require __DIR__."/../vendor/autoload.php";
-echo"hello";
 $dotenv = Dotenv::createImmutable('..');
 $dotenv->load();
 

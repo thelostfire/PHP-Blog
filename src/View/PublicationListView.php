@@ -5,12 +5,23 @@ namespace App\View;
 use App\Core\BaseView;
 use App\Entity\Publication;
 
-class PublicationListView{
+class PublicationListView extends BaseView{
 
 
-    public function __construct(private Publication $publication) {}
+    private $publication;
+    public function __construct( Publication $publication) {
+        $this->publication = $publication;
+    }
 
     public function publicationListContent() {
-        echo "<li><article><h2>".$this->publication->getTitle()."</h2><p>".$this->publication->getAuthor().", le ".$this->publication->getDate()."</p></article></li>";
+        
+        ?>
+        <li>
+            <article>
+                <h2><a href="/publication?id=<?=$this->publication->getId()?>"><?=$this->publication->getTitle()?></a></h2>
+                <p><?=$this->publication->getAuthor()?>, le <?=$this->publication->getDate()?></p>
+            </article>
+        </li>
+        <?php
     }
 }

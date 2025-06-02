@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS comment;
 
 CREATE TABLE publication (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(80) NOT NULL,
+    title VARCHAR(80) NOT NULL UNIQUE,
     content TEXT NOT NULL,
     date DATETIME NOT NULL,
     likes INT NOT NULL,

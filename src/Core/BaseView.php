@@ -14,8 +14,6 @@ class BaseView {
     public function __construct() {
         $this->header = new Header();
         $this->footer = new Footer();
-
-        var_dump($this);
     }
 
     protected function content() {

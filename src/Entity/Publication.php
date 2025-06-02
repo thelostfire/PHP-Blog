@@ -12,13 +12,14 @@ class Publication {
     private ?string $imageURL;
     private int $id;
 
-    public function __construct(string $title, string $content, string $date, int $likes, string $author, ?string $imageURL = null) {
+    public function __construct(string $title, string $content, string $date, int $likes, string $author, int $id, ?string $imageURL = null) {
 
         $this->title = $title;
         $this->content = $content;
         $this->date = $date;
         $this->likes = $likes;
         $this->author = $author;
+        $this->id = $id;
         $this->imageURL = $imageURL;
     }
 

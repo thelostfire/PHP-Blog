@@ -7,14 +7,16 @@ class Comment {
     private string $content;
     private string $date;
     private int $likes;
+    private string $author;
     private int $publicationID;
     private int $id;
 
-    public function __construct(string $content, string $date, int $likes, int $publicationID) {
+    public function __construct(string $content, string $date, int $likes, string $author, int $publicationID) {
 
         $this->content = $content;
         $this->date = $date;
         $this->likes = $likes;
+        $this->author = $author;
         $this->publicationID = $publicationID;
     }
     
@@ -35,6 +37,12 @@ class Comment {
     }
     public function setLikes($likes) {
         $this->likes = $likes;
+    }
+    public function getAuthor() {
+        return $this->author;
+    }
+    public function setAuthor($author) {
+        $this->author = $author;
     }
     public function getpublicationID() {
         return $this->publicationID;

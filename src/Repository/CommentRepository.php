@@ -18,7 +18,34 @@ class CommentRepository {
                 $row["content"],
                 $row["date"],
                 $row["likes"],
-                $row["commentID"],
+                $row["author"],
+                $row["publicationID"]
+            );
+            $list[]=$comment;
+        }
+        return $list;
+    }
+    /**
+     * Méthode qui s'occupe de récupérer tous les commentaires d'une même publication par le biais de leur ID, en les triant
+     * par date afin de les ordonner du plus récent au plus vieux (pour ensuite les afficher en-dessous de la publication).
+     * @param int $id ID de la publication dont on cherche les commentaires
+     * @return Comment[] liste triée des commentaires recherchés 
+     */
+    public function findAllByPublicationId(int $id) {
+        $connection = Database::connect();
+        $list = [];
+
+        $preparedQuery = $connection->prepare("SELECT * FROM comment WHERE publicationID = :id ORDER BY date DESC");
+        $preparedQuery->bindValue(":id", $id);
+        $preparedQuery->execute();
+
+        while($row = $preparedQuery->fetch()) {
+            $comment = new Comment(
+                $row["content"],
+                $row["date"],
+                $row["likes"],
+                $row["author"],
+                $row["publicationID"]
             );
             $list[]=$comment;
         }
@@ -37,6 +64,7 @@ class CommentRepository {
                 $row["content"],
                 $row["date"],
                 $row["likes"],
+                $row["author"],
                 $row["publicationID"]
             );
             return $comment;
