@@ -39,10 +39,19 @@ class PublicationView extends BaseView{
                 <p>
                     <?=$this->toPublish->getContent()?>
                 </p>
-                <form method="post">
-                    <input type="hidden">
-                    <button>Likes(<?=$this->toPublish->getLikes()?>)</button>
-                </form>
+                <div>
+                    <form method="post">
+                        <input type="hidden" name="likes">
+                        <button>Likes(<?=$this->toPublish->getLikes()?>)</button>
+                    </form>
+                    <div>
+                        <a href="/update?id=<?=$this->toPublish->getId()?>">Modifier</a>
+                        <form method="post">
+                            <input type="hidden" name="deletePublication">
+                            <button>Supprimer</button>
+                        </form>
+                    </div>
+                </div>
 
             </article>
             <ul>

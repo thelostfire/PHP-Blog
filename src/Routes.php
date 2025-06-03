@@ -5,6 +5,7 @@ namespace App;
 use App\Controller\HomeController;
 use App\Controller\PublicationController;
 use App\Controller\PublicationFormController;
+use App\Controller\UpdateFormController;
 
 class Routes {
 
@@ -13,7 +14,8 @@ class Routes {
         return [
             "/" => new HomeController(),
             "form" => new PublicationFormController(),
-            "publication" => new PublicationController()
+            "publication" => new PublicationController(),
+            "update" => new UpdateFormController()
         ];
     }
 }

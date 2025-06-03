@@ -10,17 +10,17 @@ class Publication {
     private int $likes;
     private string $author;
     private ?string $imageURL;
-    private int $id;
+    private ?int $id;
 
-    public function __construct(string $title, string $content, string $date, int $likes, string $author, int $id, ?string $imageURL = null) {
+    public function __construct(string $title, string $content, string $date, int $likes, string $author, ?string $imageURL = null, ?int $id = null) {
 
         $this->title = $title;
         $this->content = $content;
         $this->date = $date;
         $this->likes = $likes;
         $this->author = $author;
-        $this->id = $id;
         $this->imageURL = $imageURL;
+        $this->id = $id;
     }
 
     public function getTitle() {

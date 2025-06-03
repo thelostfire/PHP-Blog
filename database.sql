@@ -17,7 +17,8 @@ CREATE TABLE comment (
     date DATETIME,
     likes INT, 
     author VARCHAR(40),
-    publicationID INT
+    publicationID INT,
+    FOREIGN KEY (publicationID) REFERENCES publication(id) ON DELETE CASCADE
 );
 
 INSERT INTO publication (title,content,date,likes,author,imageURL) VALUES 

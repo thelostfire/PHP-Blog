@@ -3,6 +3,7 @@
 namespace App\View;
 
 use App\Core\BaseView;
+use DateTime;
 
 class HomeView extends BaseView{
 
@@ -14,6 +15,10 @@ class HomeView extends BaseView{
     }
 
     protected function content(){
+        $time = date("Y-m-d H-i-s");
+        
+       
+        
         ?>
         <h1>Bienvenue sur Nom d'une Pipe !</h1>
         <p>Des trucs sur les pipes toutes les semaines !</p>

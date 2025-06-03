@@ -20,8 +20,8 @@ class PublicationRepository {
                 $row["date"],
                 $row["likes"],
                 $row["author"],
-                $row["id"],
-                $row["imageURL"]
+                $row["imageURL"],
+                $row["id"]
             );
             $list[]=$publication;
         }
@@ -51,12 +51,13 @@ class PublicationRepository {
     }
     public function persist(Publication $publication) {
         $connection = Database::connect();
-        $preparedQuery = $connection->prepare("INSERT INTO publication (title, content, date, likes) VALUES (:title, :content, :date, :likes)");
+        $preparedQuery = $connection->prepare("INSERT INTO publication (title, content, date, likes, author) VALUES (:title, :content, :date, :likes, :author)");
 
         $preparedQuery->bindValue(":title", $publication->getTitle());
         $preparedQuery->bindValue(":content", $publication->getContent());
         $preparedQuery->bindValue(":date", $publication->getDate());
         $preparedQuery->bindValue(":likes", $publication->getLikes());
+        $preparedQuery->bindValue(":author", $publication->getAuthor());
 
         $preparedQuery->execute();
 
@@ -74,12 +75,13 @@ class PublicationRepository {
 
     public function update(Publication $publication) {
         $connection = Database::connect();
-        $preparedQuery= $connection->prepare("UPDATE publication SET title=:title, content=:content, date=:date, likes=:likes");
+        $preparedQuery= $connection->prepare("UPDATE publication SET title=:title, content=:content, date=:date, likes=:likes WHERE id=:id");
 
         $preparedQuery->bindValue(":title", $publication->getTitle());
         $preparedQuery->bindValue(":content", $publication->getContent());
         $preparedQuery->bindValue(":date", $publication->getDate());
         $preparedQuery->bindValue(":likes", $publication->getLikes());
+        $preparedQuery->bindValue(":id", $publication->getId());
 
         $preparedQuery->execute();
 
