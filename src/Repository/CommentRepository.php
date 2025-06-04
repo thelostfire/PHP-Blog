@@ -73,11 +73,12 @@ class CommentRepository {
     }
     public function persist(Comment $comment) {
         $connection = Database::connect();
-        $preparedQuery = $connection->prepare("INSERT INTO comment (title, content, date, likes) VALUES (:title, :content, :date, :likes)");
+        $preparedQuery = $connection->prepare("INSERT INTO comment (content, date, likes, author, publicationID) VALUES (:content, :date, :likes, :author, :publicationID)");
 
         $preparedQuery->bindValue(":content", $comment->getContent());
         $preparedQuery->bindValue(":date", $comment->getDate());
         $preparedQuery->bindValue(":likes", $comment->getLikes());
+        $preparedQuery->bindValue(":author", $comment->getAuthor());
         $preparedQuery->bindValue(":publicationID", $comment->getpublicationID());
 
         $preparedQuery->execute();
@@ -96,11 +97,12 @@ class CommentRepository {
 
     public function update(Comment $comment) {
         $connection = Database::connect();
-        $preparedQuery= $connection->prepare("UPDATE comment SET title=:title, content=:content, date=:date, likes=:likes");
+        $preparedQuery= $connection->prepare("UPDATE comment SET content=:content, date=:date, likes=:likes, author=:author, publicationID=:publicationID");
 
         $preparedQuery->bindValue(":content", $comment->getContent());
         $preparedQuery->bindValue(":date", $comment->getDate());
         $preparedQuery->bindValue(":likes", $comment->getLikes());
+        $preparedQuery->bindValue(":author", $comment->getAuthor());
         $preparedQuery->bindValue(":publicationID", $comment->getPublicationID());
 
         $preparedQuery->execute();

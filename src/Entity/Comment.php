@@ -9,7 +9,7 @@ class Comment {
     private int $likes;
     private string $author;
     private int $publicationID;
-    private int $id;
+    private ?int $id;
 
     public function __construct(string $content, string $date, int $likes, string $author, int $publicationID) {
 

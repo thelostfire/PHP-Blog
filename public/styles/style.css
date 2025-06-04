@@ -1,0 +1,9 @@
+header {
+    nav {
+        background-color: #563232;
+        a {
+            font-family: Kaushan Script, Arial, sans-serif;
+            color: white;
+        }
+    }
+}

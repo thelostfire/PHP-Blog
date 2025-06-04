@@ -33,7 +33,7 @@ class PublicationView extends BaseView{
                 <p><?=$this->toPublish->getAuthor()?>, le <?=$this->toPublish->getDate()?></p>
                 <h1><?=$this->toPublish->getTitle()?></h1>
                 <?php if(!is_null($this->toPublish->getImageURL())) {
-                    echo "<img src=".$this->toPublish->getImageURL()." alt='ImageDeLaPublication'>";
+                    echo "<img src=uploads/".$this->toPublish->getImageURL()." alt='ImageDeLaPublication'>";
                 }?>
                 
                 <p>
@@ -54,6 +54,16 @@ class PublicationView extends BaseView{
                 </div>
 
             </article>
+            <div>
+                <form method="post">
+                    <label for="commenterName">
+                        <input type="text" name="commenterName" placeholder="Votre nom"></label>
+                    <label for="comment">
+                        <input type="text" name="comment" placeholder="Ajouter un commentaire">
+                    </label>
+                    <button>Commenter</button>
+                </form>
+            </div>
             <ul>
                 <?php
                 foreach($this->comments as $comment) {

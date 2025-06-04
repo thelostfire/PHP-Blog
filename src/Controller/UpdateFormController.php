@@ -9,8 +9,10 @@ use App\Repository\PublicationRepository;
 use App\View\ErrorView;
 use App\View\PublicationFormView;
 use App\View\PublicationView;
+use App\View\RedirectView;
 
 class UpdateFormController extends BaseController{
+
 
     protected function doGet(): BaseView {
 
@@ -41,8 +43,8 @@ class UpdateFormController extends BaseController{
         }
         $repo = new PublicationRepository;
         $oldPublication = $repo->findById($id);
-        $altPublication = new Publication($_POST["formTitle"], $_POST["formContent"], $oldPublication->getDate(), $oldPublication->getLikes(), $oldPublication->getAuthor());
+        $altPublication = new Publication($_POST["formTitle"], $_POST["formContent"], $oldPublication->getDate(), $oldPublication->getLikes(), $oldPublication->getAuthor(), $oldPublication->getImageURL(), $oldPublication->getId());
         $repo->update($altPublication);
-        return new PublicationView($altPublication);
+        return new RedirectView("/publication?id=".$id);
     }
 }

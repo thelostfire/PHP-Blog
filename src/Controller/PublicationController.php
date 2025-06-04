@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Core\BaseController;
 use App\Core\BaseView;
+use App\Entity\Comment;
+use App\Repository\CommentRepository;
 use App\Repository\PublicationRepository;
 use App\View\ErrorView;
 use App\View\HomeView;
@@ -38,6 +40,17 @@ class PublicationController extends BaseController{
             if(isset($_POST["deletePublication"])) {
                 $repo->delete($id);
                 return new HomeView($repo->findAll());
+            }
+            if(isset($_POST["commenterName"]) && isset($_POST["comment"])) {
+                
+                if(empty($_POST["commenterName"]) || empty($_POST["comment"])) {
+                    return new ErrorView("Veuillez remplir tous les champs du commentaire");
+                }
+                $commRepo = new CommentRepository;
+                $comm = new Comment($_POST["comment"], date("Y-m-d H-i-s"), 0, $_POST["commenterName"], $id);
+                $commRepo->persist($comm);
+                return new PublicationView($repo->findById($id));
+                
             }
             return new HomeView($repo->findAll());
     }
