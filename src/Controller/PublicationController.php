@@ -47,7 +47,13 @@ class PublicationController extends BaseController{
                     return new ErrorView("Veuillez remplir tous les champs du commentaire");
                 }
                 $commRepo = new CommentRepository;
-                $comm = new Comment($_POST["comment"], date("Y-m-d H-i-s"), 0, $_POST["commenterName"], $id);
+                $comm = new Comment(
+                    $_POST["comment"], 
+                    date("Y-m-d H-i-s"), 
+                    0,
+                    $_POST["commenterName"], 
+                    $repo->findById($id)
+                );
                 $commRepo->persist($comm);
                 return new PublicationView($repo->findById($id));
                 

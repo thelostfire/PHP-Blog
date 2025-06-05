@@ -9,7 +9,7 @@ use App\Repository\PublicationRepository;
 
 class PublicationView extends BaseView{
 
-    private $toPublish;
+    private Publication $toPublish;
     private $comments;
 
     public function __construct(private Publication $publication) {
@@ -19,7 +19,7 @@ class PublicationView extends BaseView{
         $repo = new PublicationRepository();
         $repoComms = new CommentRepository();
         $this->toPublish = $repo->findById($this->publication->getId());
-        $this->comments = $repoComms->findAllByPublicationId($this->publication->getId());
+        $this->comments = $repoComms->findAllByPublication($publication);
     }
 
     public function content() {

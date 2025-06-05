@@ -76,13 +76,14 @@ class PublicationRepository {
 
     public function update(Publication $publication) {
         $connection = Database::connect();
-        $preparedQuery= $connection->prepare("UPDATE publication SET title=:title, content=:content, date=:date, likes=:likes WHERE id=:id");
+        $preparedQuery= $connection->prepare("UPDATE publication SET title=:title, content=:content, date=:date, likes=:likes, imageURL=:imageURL WHERE id=:id");
 
         $preparedQuery->bindValue(":title", $publication->getTitle());
         $preparedQuery->bindValue(":content", $publication->getContent());
         $preparedQuery->bindValue(":date", $publication->getDate());
         $preparedQuery->bindValue(":likes", $publication->getLikes());
         $preparedQuery->bindValue(":id", $publication->getId());
+        $preparedQuery->bindValue(":imageURL", $publication->getImageURL());
 
         $preparedQuery->execute();
 
