@@ -1,9 +1,79 @@
 header {
     nav {
+        height: 10vh;
         background-color: #563232;
         a {
             font-family: Kaushan Script, Arial, sans-serif;
             color: white;
+            text-decoration: none;
         }
+        .logo-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding-right: 2rem;
+            color: white;
+            
+        }
+        .search-button {
+            font-weight: bold;
+        }
+        ul {
+            li {
+                padding: 0 4rem;
+                font-size: 1.3rem;
+            }
+        }
+        .navbar-nav {
+            @media (max-width: 991px) {
+
+                background-color: rgba(0, 0, 0, 0.6);
+                border-radius: 5px;
+            }
+        }
+       
+    }
+}
+
+main {
+    min-height: 81vh;
+    text-align: center;
+    h1 {
+        margin: 2rem;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 2rem 10px;
+        li {
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 1rem;
+            padding: 1rem;
+            width: 25vw;
+            @media (max-width: 1000px) {
+                width: 40vw;
+            }
+        }
+    }
+    .home-list {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .author-aside {
+        text-align: left;
+        margin: 2rem;
+    }
+    .single-view {
+        margin: 0 3rem;
+    }
+}
+
+footer {
+    height: 9vh;
+    background-color: #563232;
+    color: white;
+    a {
+        color: white;
     }
 }

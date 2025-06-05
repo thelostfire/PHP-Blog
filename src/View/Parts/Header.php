@@ -21,11 +21,11 @@ class Header {
             <title>Nom d'une pipe</title>
         </head>
         <body>
-            <header>
+            <header class="sticky-top">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
-                        <a href="/">Nom d'une Pipe</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <a class="logo-title" href="/">Nom d'une Pipe</a>
+                        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -40,8 +40,8 @@ class Header {
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Rechercher une publication" aria-label="Search"/>
-                            <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                            <input class="form-control me-2" type="search" placeholder="Rechercher une publi..." aria-label="Search"/>
+                            <button class="btn btn-outline-warning search-button" type="submit">Rechercher</button>
                         </form>
                         </div>
                     </div>

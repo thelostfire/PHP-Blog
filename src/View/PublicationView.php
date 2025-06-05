@@ -29,8 +29,8 @@ class PublicationView extends BaseView{
         }
         else {
             ?>
-            <article>
-                <p><?=$this->toPublish->getAuthor()?>, le <?=$this->toPublish->getDate()?></p>
+            <article class="single-view">
+                <p class="author-aside"><?=$this->toPublish->getAuthor()?>, le <?=$this->toPublish->getDate()?></p>
                 <h1><?=$this->toPublish->getTitle()?></h1>
                 <?php if(!is_null($this->toPublish->getImageURL())) {
                     echo "<img src=uploads/".$this->toPublish->getImageURL()." alt='ImageDeLaPublication'>";

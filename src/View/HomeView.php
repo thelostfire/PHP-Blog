@@ -21,8 +21,8 @@ class HomeView extends BaseView{
         
         ?>
         <h1>Bienvenue sur Nom d'une Pipe !</h1>
-        <p>Des trucs sur les pipes toutes les semaines !</p>
-        <ul>
+        <p>Des publications sur les pipes toutes les semaines !</p>
+        <ul class="home-list">
             <?php foreach($this->publicationList as $publication) {
                 $article = new PublicationListView($publication);
                 $article->publicationListContent();
